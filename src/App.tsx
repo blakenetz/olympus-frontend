@@ -147,6 +147,7 @@ function App() {
         dispatch(getAllBonds({ provider: loadProvider, networkID: networkId, address }));
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [networkId, address],
   );
 
@@ -171,6 +172,7 @@ function App() {
         }
       });
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [networkId, address, providerInitialized],
   );
 
@@ -254,6 +256,7 @@ function App() {
     if (shouldTriggerSafetyCheck()) {
       dispatch(info("Safety Check: Always verify you're on app.olympusdao.finance!"));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // this useEffect fires on state change from above. It will ALWAYS fire AFTER
@@ -265,6 +268,7 @@ function App() {
         loadDetails("app");
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [walletChecked, networkId]);
 
   // this useEffect picks up any time a user Connects via the button
@@ -273,6 +277,7 @@ function App() {
     if (connected && providerInitialized) {
       loadDetails("account");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [connected, networkId, providerInitialized]);
 
   const handleDrawerToggle = () => {
@@ -291,6 +296,7 @@ function App() {
 
   useEffect(() => {
     if (isSidebarExpanded) handleSidebarClose();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   const accountBonds = useAppSelector(state => {
